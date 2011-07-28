@@ -10,13 +10,12 @@ defined('_JEXEC') or die;
 
 // Include helper.php once
 require_once dirname(__FILE__).'/helper.php';
+require JModuleHelper::getLayoutPath('mod_simpletable', $params->get('layout', 'default'));
+
 if( $params->get('loadcss', 1) == 1){
     JHTML::stylesheet('werandonmessage.css', '/modules/mod_werandonmessage/');
 }
 
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
-$randonresult = getRandonText();
 
-require JModuleHelper::getLayoutPath('mod_werandonmessage', $params->get('layout', 'default'));
-
-
+$table = runQuery( &$params );//Must be by reference

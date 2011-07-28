@@ -11,7 +11,7 @@
 	<authorEmail>jcoderbr@gmail.com</authorEmail>
 	<authorUrl>http://fititnt.org</authorUrl>
 	<version>1.0</version>
-	<description>MOD_WERANDONMESSAGE_XML_DESCRIPTION</description>
+	<description>MOD_SIMPLETABLE_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_simpletable">mod_simpletable.php</filename>
                 <filename>helper.php</filename>
@@ -28,38 +28,77 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field
-					name="showauthor"
-					type="radio"
-					label="MOD_WERANDONMESSAGE_SHOW_AUTHOR"
-					description="MOD_WERANDONMESSAGE_SHOW_AUTHOR_DESC"
-					default="1">
-					<option
-						value="0">JNo</option>
-					<option
-						value="1">JYes</option>
+                                <field 
+                                    name="advanced" 
+                                    type="radio" 
+                                    default="0" 
+                                    label="MOD_SIMPLETABLE_ADVANCED_LABEL" 
+                                    description="MOD_SIMPLETABLE_ADVANCED_DESC">
+                                  <option value="1">JYES</option>
+                                  <option value="0">JNO</option>
+                                </field>
+                                <field
+					name="select"
+					type="text"
+					label="MOD_SIMPLETABLE_SELECT_LABEL"
+					description="MOD_SIMPLETABLE_SELECT_DESC"
+					default="">
 				</field>
                                 <field
-					name="showtitle"
-					type="radio"
-					label="MOD_WERANDONMESSAGE_SHOW_TITLE"
-					description="MOD_WERANDONMESSAGE_SHOW_TITLE_DESC"
-					default="1">
-					<option
-						value="0">JNo</option>
-					<option
-						value="1">JYes</option>
+					name="table"
+					type="text"
+					label="MOD_SIMPLETABLE_TABLE_LABEL"
+					description="MOD_SIMPLETABLE_TABLE_DESC"
+					default="">
 				</field>
                                 <field
-					name="loadcss"
-					type="radio"
-					label="MOD_WERANDONMESSAGE_LOAD_DEFAULT_CSS"
-					description="MOD_WERANDONMESSAGE_LOAD_DEFAULT_CSS_DESC"
-					default="1">
-					<option
-						value="0">JNo</option>
-					<option
-						value="1">JYes</option>
+					name="where"
+					type="text"
+					label="MOD_SIMPLETABLE_WHERE_LABEL"
+					description="MOD_SIMPLETABLE_WHERE_DESC"
+					default="">
+				</field>
+                                <field
+					name="where2"
+					type="text"
+					label="MOD_SIMPLETABLE_WHERE2_LABEL"
+					description="MOD_SIMPLETABLE2_WHERE_DESC"
+					default="">
+				</field>
+                                <field
+					name="where3"
+					type="text"
+					label="MOD_SIMPLETABLE_WHERE3_LABEL"
+					description="MOD_SIMPLETABLE3_WHERE_DESC"
+					default="">
+				</field>
+                                <field
+					name="where3"
+					type="text"
+					label="MOD_SIMPLETABLE_WHERE3_LABEL"
+					description="MOD_SIMPLETABLE_WHERE3_DESC"
+					default="">
+				</field>
+                                <field
+					name="order"
+					type="text"
+					label="MOD_SIMPLETABLE_ORDER_LABEL"
+					description="MOD_SIMPLETABLE_ORDER_DESC"
+					default="">
+				</field>
+                                <field
+					name="order2"
+					type="text"
+					label="MOD_SIMPLETABLE_ORDER2_LABEL"
+					description="MOD_SIMPLETABLE_ORDER2_DESC"
+					default="">
+				</field>
+                                <field
+					name="order3"
+					type="text"
+					label="MOD_SIMPLETABLE_ORDER3_LABEL"
+					description="MOD_SIMPLETABLE_ORDER3_DESC"
+					default="">
 				</field>
 					
 			</fieldset>
@@ -70,6 +109,31 @@
 					type="modulelayout"
 					label="JFIELD_ALT_LAYOUT_LABEL"
 					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+                                <field 
+                                    name="jtextheading" 
+                                    type="radio" 
+                                    default="0" 
+                                    label="MOD_SIMPLETABLE_JTEXTHEADING_LABEL" 
+                                    description="MOD_SIMPLETABLE_JTEXTHEADING_DESC">
+                                  <option value="1">JYES</option>
+                                  <option value="0">JNO</option>
+                                </field>
+                                <field
+					name="jtextheadingtext"
+					type="text"
+					label="MOD_SIMPLETABLE_JTEXTHEADINGTEXT_LABEL"
+					description="MOD_SIMPLETABLE_JTEXTHEADINGTEXT_DESC"
+					default="">
+				</field>
+                                <field 
+                                    name="debug" 
+                                    type="radio" 
+                                    default="0" 
+                                    label="MOD_SIMPLETABLE_DEBUG_LABEL" 
+                                    description="MOD_SIMPLETABLE_DEBUG_DESC">
+                                  <option value="1">JYES</option>
+                                  <option value="0">JNO</option>
+                                </field>
 			</fieldset>
 		</fields>
 	</config>
