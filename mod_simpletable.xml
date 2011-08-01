@@ -6,11 +6,11 @@
 	<name>mod_simpletable</name>
 	<author>Emerson Rocha Luiz</author>
 	<creationDate>July 2011</creationDate>
-	<copyright>Copyright (C) Joomla! Coders Brazil - @JCoderBR. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2005 - 2011 Webdesign Assessoria em Tecnologia da Informacao.</copyright>
 	<license>GNU General Public License version 3</license>
-	<authorEmail>jcoderbr@gmail.com</authorEmail>
+	<authorEmail>emerson@webdesign.eng.br</authorEmail>
 	<authorUrl>http://fititnt.org</authorUrl>
-	<version>1.0</version>
+	<version>1.0beta1</version>
 	<description>MOD_SIMPLETABLE_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_simpletable">mod_simpletable.php</filename>
@@ -29,6 +29,16 @@
 		<fields name="params">
 			<fieldset name="basic">
                                 <field 
+                                    name="querymode" 
+                                    type="radio" 
+                                    default="0" 
+                                    label="MOD_SIMPLETABLE_QUERYMODE_LABEL" 
+                                    description="MOD_SIMPLETABLE_QUERYMODE_DESC">
+                                  <option value="0">MOD_SIMPLETABLE_QUERYMODE_STEPTOSTEP</option>
+                                  <option value="1">MOD_SIMPLETABLE_QUERYMODE_RAWQUERY</option>
+                                </field>
+                            
+                                <field 
                                     name="advanced" 
                                     type="radio" 
                                     default="0" 
@@ -38,93 +48,21 @@
                                   <option value="0">JNO</option>
                                 </field>
                                 <field
-					name="select"
-					type="text"
-					label="MOD_SIMPLETABLE_SELECT_LABEL"
-					description="MOD_SIMPLETABLE_SELECT_DESC"
-					default="">
+					name="modbefore"
+					type="textarea"
+                                        cols="45"
+                                        rows="8"
+					label="MOD_SIMPLETABLE_MODBEFORE_LABEL"
+					description="MOD_SIMPLETABLE_MODBEFORE_DESC">
 				</field>
                                 <field
-					name="table"
-					type="text"
-					label="MOD_SIMPLETABLE_TABLE_LABEL"
-					description="MOD_SIMPLETABLE_TABLE_DESC"
-					default="">
-				</field>
-                                <field
-					name="where"
-					type="text"
-					label="MOD_SIMPLETABLE_WHERE_LABEL"
-					description="MOD_SIMPLETABLE_WHERE_DESC"
-					default="">
-				</field>
-                                <field
-					name="where2"
-					type="text"
-					label="MOD_SIMPLETABLE_WHERE2_LABEL"
-					description="MOD_SIMPLETABLE2_WHERE_DESC"
-					default="">
-				</field>
-                                <field
-					name="where3"
-					type="text"
-					label="MOD_SIMPLETABLE_WHERE3_LABEL"
-					description="MOD_SIMPLETABLE3_WHERE_DESC"
-					default="">
-				</field>
-                                <field
-					name="where3"
-					type="text"
-					label="MOD_SIMPLETABLE_WHERE3_LABEL"
-					description="MOD_SIMPLETABLE_WHERE3_DESC"
-					default="">
-				</field>
-                                <field
-					name="order"
-					type="text"
-					label="MOD_SIMPLETABLE_ORDER_LABEL"
-					description="MOD_SIMPLETABLE_ORDER_DESC"
-					default="">
-				</field>
-                                <field
-					name="order2"
-					type="text"
-					label="MOD_SIMPLETABLE_ORDER2_LABEL"
-					description="MOD_SIMPLETABLE_ORDER2_DESC"
-					default="">
-				</field>
-                                <field
-					name="order3"
-					type="text"
-					label="MOD_SIMPLETABLE_ORDER3_LABEL"
-					description="MOD_SIMPLETABLE_ORDER3_DESC"
-					default="">
-				</field>
-					
-			</fieldset>
-			<fieldset
-				name="advanced">
-				<field
-					name="layout"
-					type="modulelayout"
-					label="JFIELD_ALT_LAYOUT_LABEL"
-					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
-                                <field 
-                                    name="jtextheading" 
-                                    type="radio" 
-                                    default="0" 
-                                    label="MOD_SIMPLETABLE_JTEXTHEADING_LABEL" 
-                                    description="MOD_SIMPLETABLE_JTEXTHEADING_DESC">
-                                  <option value="1">JYES</option>
-                                  <option value="0">JNO</option>
-                                </field>
-                                <field
-					name="jtextheadingtext"
-					type="text"
-					label="MOD_SIMPLETABLE_JTEXTHEADINGTEXT_LABEL"
-					description="MOD_SIMPLETABLE_JTEXTHEADINGTEXT_DESC"
-					default="">
-				</field>
+					name="modafter"
+					type="textarea"
+                                        cols="45"
+                                        rows="8"
+					label="MOD_SIMPLETABLE_MODAFTER_LABEL"
+					description="MOD_SIMPLETABLE_MODAFTER_DESC">
+				</field>                                
                                 <field 
                                     name="debug" 
                                     type="radio" 
@@ -134,7 +72,184 @@
                                   <option value="1">JYES</option>
                                   <option value="0">JNO</option>
                                 </field>
-			</fieldset>
+                         </fieldset>
+                         <fieldset name="STEPTOSTEP">
+                                 <field
+					name="select"
+					type="text"
+                                        size="45"
+					label="MOD_SIMPLETABLE_SELECT_LABEL"
+					description="MOD_SIMPLETABLE_SELECT_DESC"
+					default="">
+				</field>
+                                <field
+					name="table"
+					type="text"
+                                        size="45"
+					label="MOD_SIMPLETABLE_TABLE_LABEL"
+					description="MOD_SIMPLETABLE_TABLE_DESC"
+					default="">
+				</field>
+                                <field
+					name="where"
+					type="text"
+                                        size="45"
+					label="MOD_SIMPLETABLE_WHERE_LABEL"
+					description="MOD_SIMPLETABLE_WHERE_DESC"
+					default="">
+				</field>
+                                <field
+					name="where2"
+					type="text"
+                                        size="45"
+					label="MOD_SIMPLETABLE_WHERE_LABEL"
+					description="MOD_SIMPLETABLE_WHERE_DESC"
+					default="">
+				</field>
+                                <field
+					name="where3"
+					type="text"
+                                        size="45"
+					label="MOD_SIMPLETABLE_WHERE3_LABEL"
+					description="MOD_SIMPLETABLE3_WHERE_DESC"
+					default="">
+				</field>
+                                <field
+					name="where3"
+					type="text"
+                                        size="45"
+					label="MOD_SIMPLETABLE_WHERE3_LABEL"
+					description="MOD_SIMPLETABLE_WHERE3_DESC"
+					default="">
+				</field>
+                                <field
+					name="order"
+					type="text"
+                                        size="45"
+					label="MOD_SIMPLETABLE_ORDER_LABEL"
+					description="MOD_SIMPLETABLE_ORDER_DESC"
+					default="">
+				</field>
+                                <field
+					name="order2"
+					type="text"
+                                        size="45"
+					label="MOD_SIMPLETABLE_ORDER2_LABEL"
+					description="MOD_SIMPLETABLE_ORDER2_DESC"
+					default="">
+				</field>
+                                <field
+					name="order3"
+					type="text"
+                                        size="45"
+					label="MOD_SIMPLETABLE_ORDER3_LABEL"
+					description="MOD_SIMPLETABLE_ORDER3_DESC"
+					default="">
+				</field>
+                         </fieldset>
+                         <fieldset name="rawquery">
+                                 <field
+					name="rawquery"
+					type="textarea"
+                                        cols="45"
+                                        rows="8"
+					label="MOD_SIMPLETABLE_RAWQUERY_LABEL"
+					description="MOD_SIMPLETABLE_RAWQUERY_DESC"
+					default="SELECT * FROM #__content WHERE featured = 1">
+				</field>
+                         </fieldset> 
+                         <fieldset name="APARENCE">
+                            <field
+                                    name="layout"
+                                    type="modulelayout"
+                                    label="JFIELD_ALT_LAYOUT_LABEL"
+                                    description="JFIELD_ALT_MODULE_LAYOUT_DESC">
+                            </field>
+                            
+                            <field type="spacer" name="MOD_SIMPLETABLE_SPACER_HEADINGTRANSLATE"/>
+                            
+                            <field 
+                                name="jtextheading" 
+                                type="radio" 
+                                default="0" 
+                                label="MOD_SIMPLETABLE_JTEXTHEADING_LABEL" 
+                                description="MOD_SIMPLETABLE_JTEXTHEADING_DESC">
+                              <option value="1">JYES</option>
+                              <option value="0">JNO</option>
+                            </field>
+                            <field
+                                    name="jtextheadingtext"
+                                    type="text"
+                                    label="MOD_SIMPLETABLE_JTEXTHEADINGTEXT_LABEL"
+                                    description="MOD_SIMPLETABLE_JTEXTHEADINGTEXT_DESC"
+                                    default="">
+                            </field>                            
+                            
+                            <field type="spacer" name="MOD_SIMPLETABLE_SPACER_TABLECSS"/>
+                            
+                            <field
+                                    name="tableclass"
+                                    type="text"
+                                    label="MOD_SIMPLETABLE_TABLECLASS_LABEL"
+                                    description="MOD_SIMPLETABLE_TABLECLASS_DESC"
+                                    default="category">
+                            </field>
+                            <field
+                                    name="tablerowprefix"
+                                    type="text"
+                                    label="MOD_SIMPLETABLE_TABLEROWPREFIX_LABEL"
+                                    description="MOD_SIMPLETABLE_TABLEROWPREFIX_DESC"
+                                    default="cat-list-row">
+                            </field>
+                            
+                            <field type="spacer" name="MOD_SIMPLETABLE_SPACER_LINK"/>
+                            
+                            <field 
+                                    name="linkuse" 
+                                    type="radio" 
+                                    default="1" 
+                                    label="MOD_SIMPLETABLE_USELINKS_LABEL" 
+                                    description="MOD_SIMPLETABLE_USELINKS_DESC">
+                                  <option value="1">JYES</option>
+                                  <option value="0">JNO</option>
+                            </field>
+                            <field
+                                    name="linktranslate"
+                                    type="list"
+                                    label="MOD_SIMPLETABLE_LINKTRANSLATE_LABEL"
+                                    description="MOD_SIMPLETABLE_LINKTRANSLATE_DESC"
+                                    default="0">
+                                  <option value="0">MOD_SIMPLETABLE_LINK_NOTRANSLATE</option>
+                                  <option value="1">MOD_SIMPLETABLE_LINK_TRANSLATE</option>
+                                  <option value="2">MOD_SIMPLETABLE_LINK_TRANSLATEEADDBASE</option>
+                            </field>
+                            <field
+                                    name="linkitens"
+                                    type="text"
+                                    size="45"
+                                    label="MOD_SIMPLETABLE_LINKITENS_LABEL"
+                                    description="MOD_SIMPLETABLE_LINKITENS_DESC"
+                                    default="">
+                            </field>
+                            <field
+                                    name="linkvar"
+                                    type="text"
+                                    label="MOD_SIMPLETABLE_LINKVAR_LABEL"
+                                    description="MOD_SIMPLETABLE_LINKVAR_DESC"
+                                    default="">
+                            </field>
+                            <field
+                                    name="linktarget"
+                                    type="list"
+                                    label="MOD_SIMPLETABLE_LINKTARGET_LABEL"
+                                    description="MOD_SIMPLETABLE_LINKTARGET_DESC"
+                                    default="">
+                                  <option value="">MOD_SIMPLETABLE_LINK_NONE</option>
+                                  <option value="_self">MOD_SIMPLETABLE_LINK_SELF</option>
+                                  <option value="_blank">MOD_SIMPLETABLE_LINK_BLANK</option>
+                                  <option value="_parent">MOD_SIMPLETABLE_LINK_PARENT</option>
+                            </field>
+                         </fieldset>
 		</fields>
 	</config>
 </extension>
