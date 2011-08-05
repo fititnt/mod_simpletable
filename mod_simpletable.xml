@@ -3,14 +3,14 @@
 	type="module"
 	method="upgrade"
 	version="1.6">
-	<name>mod_simpletable</name>
+	<name>MOD_SIMPLETABLE</name>
 	<author>Emerson Rocha Luiz</author>
 	<creationDate>July 2011</creationDate>
 	<copyright>Copyright (C) 2005 - 2011 Webdesign Assessoria em Tecnologia da Informacao.</copyright>
 	<license>GNU General Public License version 3</license>
 	<authorEmail>emerson@webdesign.eng.br</authorEmail>
 	<authorUrl>http://fititnt.org</authorUrl>
-	<version>1.0beta1</version>
+	<version>1.0beta2</version>
 	<description>MOD_SIMPLETABLE_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_simpletable">mod_simpletable.php</filename>
@@ -31,7 +31,7 @@
                                 <field 
                                     name="querymode" 
                                     type="radio" 
-                                    default="0" 
+                                    default="1" 
                                     label="MOD_SIMPLETABLE_QUERYMODE_LABEL" 
                                     description="MOD_SIMPLETABLE_QUERYMODE_DESC">
                                   <option value="0">MOD_SIMPLETABLE_QUERYMODE_STEPTOSTEP</option>
@@ -155,13 +155,18 @@
                                         rows="8"
 					label="MOD_SIMPLETABLE_RAWQUERY_LABEL"
 					description="MOD_SIMPLETABLE_RAWQUERY_DESC"
-					default="SELECT * FROM #__content WHERE featured = 1">
+					default="SELECT c.id, .c.title, u.name AS author
+FROM #__content AS c
+LEFT JOIN #__users AS u ON u.id = c.created_by
+WHERE featured = 1
+LIMIT 5">
 				</field>
                          </fieldset> 
                          <fieldset name="APARENCE">
                             <field
                                     name="layout"
                                     type="modulelayout"
+                                    default="default" 
                                     label="JFIELD_ALT_LAYOUT_LABEL"
                                     description="JFIELD_ALT_MODULE_LAYOUT_DESC">
                             </field>
@@ -171,7 +176,7 @@
                             <field 
                                 name="jtextheading" 
                                 type="radio" 
-                                default="0" 
+                                default="1" 
                                 label="MOD_SIMPLETABLE_JTEXTHEADING_LABEL" 
                                 description="MOD_SIMPLETABLE_JTEXTHEADING_DESC">
                               <option value="1">JYES</option>
@@ -229,14 +234,14 @@
                                     size="45"
                                     label="MOD_SIMPLETABLE_LINKITENS_LABEL"
                                     description="MOD_SIMPLETABLE_LINKITENS_DESC"
-                                    default="">
+                                    default="id,title">
                             </field>
                             <field
                                     name="linkvar"
                                     type="text"
                                     label="MOD_SIMPLETABLE_LINKVAR_LABEL"
                                     description="MOD_SIMPLETABLE_LINKVAR_DESC"
-                                    default="">
+                                    default="id">
                             </field>
                             <field
                                     name="linktarget"

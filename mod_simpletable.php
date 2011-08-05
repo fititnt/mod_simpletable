@@ -28,7 +28,7 @@ if( !$tablerowprefix ){
 $nitems = count($table);
 
 $st = new SimpleTable;
-if($params->get('querymode', '0') == 0){
+if($params->get('querymode', '1') == 0){
     $table = $st->runQuery( &$params );//Must be by reference
 } else {
     $table = $st->runQueryRaw( &$params );//Must be by reference
@@ -36,9 +36,9 @@ if($params->get('querymode', '0') == 0){
 
 if( $params->get('debug', 0)== 1){
     echo '<pre>';
-    echo 'Table Object';
-    print_r($table);
-    echo '<hr /> Module Parameters';
+    echo 'Table Object <hr />';
+    var_dump($table);
+    echo '<br /> Module Parameters<hr />';
     print_r($params);
     echo '</pre>'; 
 }
