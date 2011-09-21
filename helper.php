@@ -11,15 +11,13 @@ defined('_JEXEC') or die;
 
 class SimpleTable {
     
-    
-    var $prelink = NULL;
-    
     /*
      * Replace {$user->id} with id of current user and {$user->username} with username
      * @var         string          $string: string to search and replace
      * @return      string          $string
      */
-    function convertFromSession($string){
+    private function convertFromSession($string)
+    {
         $user = JRequest::getuser();
         $string = str_replace('{$user->id}', $user->id, $string );
         $string = str_replace('{$user->username}', $user->id, $string );
@@ -31,7 +29,8 @@ class SimpleTable {
      * Return param of mod_simpletable
      */
     
-    function getParam( &$params, $param, $default = NULL){
+    function getParam( &$params, $param, $default = NULL)
+    {
         //$module = &JModuleHelper::getModule('mod_simpletable');
         //$params = new JParameter($module->params);
         //$param = $params->get($param, $default);
@@ -39,8 +38,8 @@ class SimpleTable {
         return $param;
     }
 
-    function getHeader( &$params, $field){
-        
+    public function getHeader( &$params, $field)
+    {
         if( $params->get('jtextheading', 0) != 1 ) {
             return $field;
         }
@@ -48,8 +47,11 @@ class SimpleTable {
         return $field;
     }
     
-    function addLink( &$params, $row, $key, $item){
-        
+    /*
+     * 
+     */
+    public function addLink( &$params, $row, $key, $item)
+    {
         if ($params->get('linkuse', 1) != 1){
             return $field;
         }
@@ -84,8 +86,12 @@ class SimpleTable {
         }
         return $item;
     }
-
-    function runQueryRaw( &$params ){
+    
+    /*
+     * 
+     */
+    public function runQueryRaw( &$params )
+    {
         $query = $params->get('rawquery', NULL);
         $db = &JFactory::getDbo();
         $db->setQuery($query);
@@ -97,9 +103,8 @@ class SimpleTable {
      * Prepare query and execute it
      * @return          object
      */
-
-    function runQuery( &$params ){
-
+    public function runQuery( &$params )
+    {
         if ( ! $params->get('advanced', 0) ){
             $where = $params->get('where', NULL);
             $where2 = $params->get('where2', NULL);
