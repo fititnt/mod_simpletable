@@ -1,13 +1,13 @@
 PHP Joomla 1.6+ Module
 PHP | Joomla | Module Joomla 1.6 that show any database data as a Table
 
-------- Basic usage -------
+----------------------------------- How to use ---------------------------------
 
-------- Important -------
+--------------------------- Instalation & Dependences --------------------------
 
--------   Todo    -------
+-------------------------------------- Todo ------------------------------------
 
-------- Changelog -------
+----------------------------------- Changelog ----------------------------------
 
 
 CHANGELOG LEGEND:

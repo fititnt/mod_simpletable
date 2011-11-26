@@ -8,7 +8,6 @@
 // no direct access
 defined('_JEXEC') or die;
 
-// Include helper.php once
 require_once dirname(__FILE__).'/helper.php';
 
 $modbefore = htmlspecialchars_decode(($params->get('modbefore','')));
